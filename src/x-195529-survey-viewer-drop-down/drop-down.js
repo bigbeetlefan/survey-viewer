@@ -9,9 +9,17 @@ import '@servicenow/now-modal';
 import '@servicenow/now-rich-text';
 import '@servicenow/now-button';
 import view from './view';
+//import {updateOptions} from './update-options';
 
 
+const updateOptions = (items) => {	
+	{const items = allItems.map(item => (
+		{'id' : item.value, 'label' : item.label})
+		)
+	}
+	return items;
 
+}
 
 createCustomElement('x-195529-survey-viewer-drop-down', {
 	renderer: {type: snabbdom},
@@ -25,5 +33,11 @@ createCustomElement('x-195529-survey-viewer-drop-down', {
 		items:[],
 	},
 	view,
+	transformState(state) {
+        return {
+            ...state,
+            user: updateOptions(state.properties.items)
+        };
+    },
 	styles
 });
