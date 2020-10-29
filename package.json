@@ -29,6 +29,7 @@
 		"@servicenow/now-modal": "paris",
 		"@servicenow/now-rich-text": "paris",
 		"@servicenow/now-loader": "paris",
+		"@servicenow/now-heading": "paris",
 		"@servicenow/ui-effect-http": "paris"
 	},
 	"devDependencies": {

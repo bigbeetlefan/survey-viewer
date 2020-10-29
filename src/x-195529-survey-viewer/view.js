@@ -1,10 +1,36 @@
 const view = (state, {updateState}) => {
 	return (
 		<div>
-			<h2>Hello 2</h2>
-			<h2>properties.sysId = {state.properties.sysId} </h2>
-			<h2>properties.tableName = {state.properties.tableName} </h2>		
-			<x-195529-survey-viewer-drop-down sysId={state.properties.sysId} table={state.properties.tableName} ></x-195529-survey-viewer-drop-down>			
+			<now-heading label="Survey Viewer v1.0" level="1" variant="header-secondary"></now-heading>
+			<div class="bing-wrapper">
+			
+				<now-card></now-card>
+				{state.showLoading ? (<now-loader></now-loader>) : (
+					<ul>
+						{state.searchResults.questions.idList.length ? (
+							console.log(state.searchResults),
+							state.searchResults.questions.idList.map(result => (
+								<div>
+									{state.searchResults.questions.idMap[result].label}
+														
+								<li>
+									{state.searchResults.questions.idMap[result].type == 'choice' ? (
+									<x-195529-survey-viewer-drop-down items={state.searchResults.questions.idMap[result].choices}></x-195529-survey-viewer-drop-down>
+									): null}
+								</li>								
+								</div>	
+									
+								
+							))
+						) : (
+							<li>NO RESULT FOUND</li>
+							
+						)}
+					</ul>
+				)}
+				
+			</div>		
+					
 		</div>
 		
 	)
