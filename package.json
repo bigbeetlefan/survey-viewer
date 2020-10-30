@@ -30,6 +30,7 @@
 		"@servicenow/now-rich-text": "paris",
 		"@servicenow/now-loader": "paris",
 		"@servicenow/now-heading": "paris",
+		"@servicenow/now-textarea": "paris",
 		"@servicenow/ui-effect-http": "paris"
 	},
 	"devDependencies": {

@@ -1,1 +1,1 @@
-import './survey-viewer';
+import './main-view-script.js';
