@@ -14,9 +14,13 @@ createCustomElement('x-195529-survey-viewer-drop-down', {
 		items:[],
 		showLoading : true,
 		selectedItems: [],
-		searchResults: []
+		searchResults: [],
+		shouldUpdate: true
 	},
 	properties: {
+		fieldId: {
+			default: ''
+		},
 		selectedItems: [],
 		items:[],
 		allItems:{
@@ -27,7 +31,8 @@ createCustomElement('x-195529-survey-viewer-drop-down', {
 				//console.log(newItems);
 				return newItems;
 			}
-		}
+		},
+		shouldUpdate: true
 	},
 	view,
 	// transformState(state) {
@@ -37,7 +42,7 @@ createCustomElement('x-195529-survey-viewer-drop-down', {
     //     };
 	// },
 	actionHandlers: {
-		'NOW_DROPDOWN#SELECTED_ITEMS_SET': ({action, updateState}) => updateState({selectedItems: action.payload.value})
+		'NOW_DROPDOWN#SELECTED_ITEMS_SET': ({action, updateState}) => updateState({selectedItems: action.payload.value, shouldUpdate: true})
 	},
 	styles
 });

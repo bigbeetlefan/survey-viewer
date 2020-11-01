@@ -10,14 +10,24 @@ import view from './view';
 createCustomElement('x-195529-survey-viewer-textarea', {
 	renderer: {type: snabbdom},
 	initialState:{
-		answers: ''
+		value: '',		
+		answers: {
+			default: ''
+		}
 	},
 	properties: {
-		answers: [],
+		fieldId: {
+			default: ''
+		},
+		value: '',
+		answers:{
+			default: ''
+		}
 	},
 	view,
 	actionHandlers: {
-		'NOW_TEXTAREA#INPUT': ({action, updateState}) => updateState({answers: action.payload.value})
+		'NOW_TEXTAREA#INPUT': ({action, updateState}) => updateState({answers: action.payload.fieldValue})
+		//'NOW_TEXTAREA#INPUT': ({action, updateState}) => updateState(console.log(action))
 	},
 	styles
 });

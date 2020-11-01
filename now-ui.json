@@ -7,7 +7,9 @@
 				"now-highlighted-value",
 				"now-icon",
 				"now-loader",
-				"now-modal"
+				"now-modal",
+				"now-dropdown",
+				"now-textarea"
 			],
 			"uiBuilder": {
 				"associatedTypes": ["global.core", "global.landing-page"],

@@ -3,6 +3,8 @@ import snabbdom from '@servicenow/ui-renderer-snabbdom';
 import {createHttpEffect} from '@servicenow/ui-effect-http';
 import styles from './styles.scss';
 import '../x-195529-survey-viewer-drop-down';
+import '../x-195529-survey-viewer-textarea';
+import '../x-195529-survey-viewer-tester';
 import '@servicenow/now-button';
 import '@servicenow/now-loader';
 import '@servicenow/now-heading';
@@ -22,7 +24,11 @@ createCustomElement('x-195529-survey-viewer', {
 		searchText: 'email',
 		showLoading : true,
 		searchResults: [],
-		selectedResult: null
+		selectedResult: null,
+		answers : 'answers default value',
+		testNname : {
+			default: ''
+		}
 	},
 	properties: {
 		searchText: {
@@ -34,8 +40,14 @@ createCustomElement('x-195529-survey-viewer', {
 		tableName: {
 			default: 'kb_knowledge'			
 		},
-		typeId:{
-			default: '502a2c44d7211100158ba6859e6103a3'
+		answers:{
+			default: '4585'
+		},
+		field: {
+			default:'hello'
+		},
+		testNname: {
+			default: ''
 		}
 	},
 	view,
@@ -55,7 +67,22 @@ createCustomElement('x-195529-survey-viewer', {
 			successActionType:'SEARCH_RESULTS_FETCHED'
 		}),
 		SEARCH_RESULTS_STARTED: ({updateState}) => updateState({showLoading: true}),
-		SEARCH_RESULTS_FETCHED: ({action, updateState}) => updateState({searchResults: action.payload.result, showLoading: false})
-	},
+		SEARCH_RESULTS_FETCHED: ({action, updateState}) => updateState({searchResults: action.payload.result, showLoading: false}),
+		'NOW_TEXTAREA#INPUT':({action, state, updateState}) => {
+            const {fieldId,  fieldValue} = action.payload;
+            updateState(
+				state[fieldId] = fieldValue
+			);
+			console.log(action.payload);
+		},
+		'NOW_DROPDOWN#SELECTED_ITEMS_SET': ({action, state, updateState}) => {
+			const {fieldId,  value} = action.payload;
+			updateState(
+				state[fieldId] = value
+				//state.shouldUpdate = true
+			);
+			console.log(action.payload);
+		}
+	 },
 	styles
 });
