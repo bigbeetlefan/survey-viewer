@@ -12,7 +12,7 @@ createCustomElement('x-195529-survey-viewer-textarea', {
 	initialState:{
 		value: '',		
 		answers: {
-			default: ''
+			default: null
 		}
 	},
 	properties: {
@@ -21,7 +21,7 @@ createCustomElement('x-195529-survey-viewer-textarea', {
 		},
 		value: '',
 		answers:{
-			default: ''
+			default: null
 		}
 	},
 	view,
