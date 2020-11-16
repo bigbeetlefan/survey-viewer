@@ -26,7 +26,7 @@ createCustomElement('x-195529-survey-viewer-textarea', {
 	},
 	view,
 	actionHandlers: {
-		'NOW_TEXTAREA#INPUT': ({action, updateState}) => updateState({answers: action.payload.fieldValue})
+		//'NOW_TEXTAREA#INPUT': ({action, updateState}) => updateState({answers: action.payload.fieldValue})
 		//'NOW_TEXTAREA#INPUT': ({action, updateState}) => updateState(console.log(action))
 	},
 	styles

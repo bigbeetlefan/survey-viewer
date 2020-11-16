@@ -31,7 +31,8 @@
 		"@servicenow/now-loader": "paris",
 		"@servicenow/now-heading": "paris",
 		"@servicenow/now-textarea": "paris",
-		"@servicenow/ui-effect-http": "paris"
+		"@servicenow/ui-effect-http": "paris",
+		"@servicenow/now-radio-buttons": "paris"
 	},
 	"devDependencies": {
 		"@servicenow/cli-archetype-dev": "18.0.0",
